@@ -41,7 +41,7 @@ rule count_words:
 ~~~
 {: .language-python}
 
-This is a [build file](../reference#build-file), which for Snakemake is called a
+This is a [build file][ref-build-file], which for Snakemake is called a
 Snakefile - a file executed by Snakemake. Note that aside from a few keyword
 additions like `rule`, it follows standard Python 3 syntax.
 
