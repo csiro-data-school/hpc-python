@@ -148,8 +148,9 @@ directory.
 > As well as a new rule you may also need to update existing rules.
 >
 > Remember that when testing a pattern rule, you can't just ask Snakemake to
-> execute the rule by name. You need to ask Snakemake to build a specific file.
-> So instead of `snakemake count_words` you need something like `snakemake dats/last.dat`.
+> execute the rule by its name, as this will result in a `WorkflowError`.
+> Instead, you will need to ask Snakemake to build a specific file,
+> e.g. if you wanted to generate the `dats/last.dat`, you would have to execute `snakemake dats/last.dat`
 >
 > > ## Solution
 > >
