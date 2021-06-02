@@ -248,7 +248,7 @@ python plotcount.py isles.dat isles.png
 python plotcount.py abyss.dat abyss.png
 
 # This line is also commented out because it doesn't need to be rerun.
-python zipf_test.py abyss.dat isles.dat > results.txt
+#python zipf_test.py abyss.dat isles.dat > results.txt
 ~~~
 {: .language-bash}
 
@@ -262,6 +262,22 @@ times, and then edit the result.
 What we really want is an executable _description_ of our pipeline that
 allows software to do the tricky part for us: figuring out what tasks need to
 be run where and when, then perform those tasks for us.
+
+> ## Thinking about updating results
+>
+> 1. Make some small adjustment to `plotcount.py` that changes how the information is presented in the graph (hint: just like how we earlier adjusted the `width`).
+> 2. Run the pipeline script to update all graph files with the new style of graph.
+>
+> Then consider the following questions:
+> 1. How do you know which graphs need to be updated?
+> 2. What would you have to do if one of the books' contents changed at a later date, but you didn't know which book had changed?
+> 3. Would this be a problem if it took much longer (e.g. hours) to do the book-specific analysis that is required to draw the corresponding graph?
+> > ## Solution
+> > 1. Since you made a change to the graph drawing logic, which affects *all* graphs, you can reason that *all* graphs must be updated. Assuming you made no changes to the pipeline script, running it will cause all graphs to be updated to the new style.
+> > 2. You would have to issue the command to re-draw all of the graphs again, even though only one of them actually needs updating.
+> > 3. Compared to our demonstration workflow which can be run in seconds, a real-life or large-scale workflow could take much longer to complete. So having to re-run the _entire_ workflow because only _one part_ of the inputs has changed could mean taking up considerable time and compute resources in order to update _all_ of the results.
+> {:.solution}
+{:.challenge}
 
 [ref-zipf]: ../reference#zipfs-law
 
