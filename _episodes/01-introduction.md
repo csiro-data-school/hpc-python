@@ -269,9 +269,11 @@ be run where and when, then perform those tasks for us.
 > 2. Run the pipeline script to update all graph files with the new style of graph.
 >
 > Then consider the following questions:
+>
 > 1. How do you know which graphs need to be updated?
 > 2. What would you have to do if one of the books' contents changed at a later date, but you didn't know which book had changed?
 > 3. Would this be a problem if it took much longer (e.g. hours) to do the book-specific analysis that is required to draw the corresponding graph?
+> 
 > > ## Solution
 > > 1. Since you made a change to the graph drawing logic, which affects *all* graphs, you can reason that *all* graphs must be updated. Assuming you made no changes to the pipeline script, running it will cause all graphs to be updated to the new style.
 > > 2. You would have to issue the command to re-draw all of the graphs again, even though only one of them actually needs updating.
