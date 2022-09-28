@@ -80,6 +80,50 @@ rule create_archive:
 At this point, we have a complete data analysis pipeline. Very cool. But how
 do we make it run as efficiently as possible?
 
+## Using temporary outputs
+
+Intermediate files may not be required after a successful run of the analysis
+pipeline. For those scenarios, Snakemake provides an option to specify a
+file as temporary. The output file marked as `temp` is deleted after all rules
+that use it as an input are completed. For example, changing the rules
+`count_words` and `make_plot` to the following will remove all the `DATS` and
+`PLOTS` after `zipf_analysis.tar.gz` archive is successfully generated:
+
+~~~
+rule count_words:
+    input:
+        cmd='wordcount.py',
+        book='books/{book}.txt'
+    output: temp('dats/{book}.dat')
+    shell: 'python {input.cmd} {input.book} {output}'
+
+rule make_plot:
+    input:
+        cmd='plotcount.py',
+        dat='dats/{book}.dat'
+    output: temp('plots/{book}.png')
+    shell: 'python {input.cmd} {input.dat} {output}'
+~~~
+{:.language-python}
+
+
+~~~
+snakemake create_archive -p -j 1
+~~~
+{:.language-bash}
+
+~~~
+Removing temporary output dats/sierra.dat.
+Removing temporary output dats/isles.dat.
+Removing temporary output dats/last.dat.
+Removing temporary output dats/abyss.dat.
+Removing temporary output plots/sierra.png.
+Removing temporary output plots/isles.png.
+Removing temporary output plots/last.png.
+Removing temporary output plots/abyss.png.
+~~~
+{: .output}
+
 ## Running in parallel
 
 Up to this point, Snakemake has printed out an interesting message whenever
