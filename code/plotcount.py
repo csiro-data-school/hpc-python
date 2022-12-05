@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.use("AGG")
 import matplotlib.pyplot as plt
 import sys
-from collections import Sequence
+from collections.abc import Sequence
 
 from wordcount import load_word_counts
 
