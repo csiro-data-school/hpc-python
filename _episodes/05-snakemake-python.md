@@ -392,7 +392,7 @@ Upon execution of the corresponding rule, Snakemake runs our Python code
 in the `run:` block:
 
 ~~~
-snakemake --quiet print_book_names
+snakemake print_book_names --quiet
 ~~~
 {: .language-bash}
 
