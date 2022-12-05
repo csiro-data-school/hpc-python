@@ -76,7 +76,7 @@ rule count_words:
     input: wordcount.py, books/sierra.txt
     output: sierra.dat
     jobid: 0
-    wildcards: file=sierra
+    wildcards: book=sierra
 
 python wordcount.py books/sierra.txt sierra.dat
 Finished job 0.
