@@ -173,7 +173,7 @@ Now you are good to go!
 >
 > ~~~
 > cd
-> echo 'export PATH=$PATH:~/AppData/Local/Continuum/Anaconda3/Scripts' >> .bashrc`
+> echo 'export PATH=$PATH:~/AppData/Local/Continuum/Anaconda3/Scripts' >> .bashrc
 > echo 'source activate >> .bashrc'
 > ~~~
 > {: .language-bash}
